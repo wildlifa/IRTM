@@ -12,7 +12,7 @@ class CSVreader:
         with open(path, newline='', encoding='utf-8') as csvfile:
             reader = csv.reader(csvfile, delimiter='\t')
             for row in reader:
-                dataset = (row[0], row[1], row[2], row[3], row[4])
+                dataset = (row[0], int(row[1]), row[2], row[3], row[4])
                 self.__raw_list.append(dataset)
             print("sorting by ids...")
             self.__raw_list.sort(key=by_tweet_id)
