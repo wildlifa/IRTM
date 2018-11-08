@@ -1,21 +1,15 @@
 import CSVreaderClass
 import UnsortedTermListGeneratorClass
 import FrequencyVectorClass
+import QueryProcesserClass
 
 
 # entry point of the interpreter
 def main():
     dictionary, list_structure = index("tweets.csv")
-    print("-------------")
-    x = dictionary.get("nacht")
-    x_list = x[2]
-    for each in x_list:
-        print(each)
-    print("-------------")
-    y = dictionary.get("schlafen")
-    y_list = y[2]
-    for each in y_list:
-        print(each)
+    query_processor = QueryProcesserClass.QueryProcessor(dictionary)
+    query_processor.print_posting_list_by_term("nacht")
+    query_processor.print_posting_list_by_term("schlafen")
 
 
 # returns the dictionary and the inverted index list structure
