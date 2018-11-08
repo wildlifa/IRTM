@@ -6,6 +6,16 @@ import FrequencyVectorClass
 # entry point of the interpreter
 def main():
     dictionary, list_structure = index("tweets.csv")
+    print("-------------")
+    x = dictionary.get("nacht")
+    x_list = x[2]
+    for each in x_list:
+        print(each)
+    print("-------------")
+    y = dictionary.get("schlafen")
+    y_list = y[2]
+    for each in y_list:
+        print(each)
 
 
 # returns the dictionary and the inverted index list structure
@@ -23,7 +33,6 @@ def index(filename):
     frequency_vector = frequency_generator.generate_vector_from_list(my_list)
     counter = 0
     for frequency_value in frequency_vector:
-        print(frequency_value[0], frequency_value[1])
         posting_list = []
         for each in range(counter, counter + frequency_value[0]):
             posting_list.append(my_list[each][1])
