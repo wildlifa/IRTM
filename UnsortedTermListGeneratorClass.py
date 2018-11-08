@@ -13,7 +13,7 @@ class UnsortedTermListGenerator:
             local_term_list = term_generator.\
                 get_terms_from_string(each[4])  # returns a list of normalized terms from a string
             for local_term in local_term_list:   # adds a tuple of term and doc ID to the global list
-                item = (local_term, each[1])
+                item = (local_term, each[1])    # (term, docID)
                 self.__unsorted_list.append(item)
         return self.__unsorted_list
 
